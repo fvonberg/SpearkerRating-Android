@@ -1,0 +1,1 @@
+# SpearkerRating-Android
