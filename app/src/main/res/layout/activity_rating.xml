@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_vertical_margin"
+    android:background="@color/bgColor"
+    tools:context="de.w11k.speakerrating_android.RatingActivity">
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:cardView="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/conferenceCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        cardView:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ratingThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_placeholder_image" />
+
+            <TextView
+                android:id="@+id/ratingTalkTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ratingThumbnail"
+                android:maxLines="3"
+                android:padding="8dp"
+                android:textColor="#222"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ratingTalkSpeaker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ratingTalkTitle"
+                android:maxLines="3"
+                android:padding="8dp"
+                android:textColor="#666"
+                android:textSize="14sp" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingCustomerRating"
+                android:layout_marginTop="5dp"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="5"
+                android:layout_below="@+id/ratingTalkSpeaker"
+                android:layout_centerHorizontal="true" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingCustomerFeedback"
+                android:layout_below="@+id/ratingCustomerRating"
+                android:lines="4"
+                android:hint="@string/rating_hint" />
+
+            <Button
+                android:id="@+id/ratingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/ratingCustomerFeedback"
+                android:text="@string/rate_button" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
