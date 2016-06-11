@@ -35,9 +35,9 @@ public class DummyConferenceService implements ConferenceService {
 
         List<Talk> talkList = new ArrayList<>();
 
-        talkList.add(new Talk(0, id, "Talk 1", "Lorem ipsum", "Frederik von Berg", Optional.of("https://placekitten.com/g/900/400")));
-        talkList.add(new Talk(1, id, "Talk 2", "Lorem ipsum", "Dragan Zuvic", Optional.<String>absent()));
-        talkList.add(new Talk(2, id, "Talk 3", "Lorem ipsum", "Philipp Burgmer", Optional.<String>absent()));
+        talkList.add(new Talk(0, id, "Talk 1", "Lorem ipsum", "Frederik von Berg", Optional.of("https://placekitten.com/g/900/400"), "heute"));
+        talkList.add(new Talk(1, id, "Talk 2", "Lorem ipsum", "Dragan Zuvic", Optional.<String>absent(), "heute"));
+        talkList.add(new Talk(2, id, "Talk 3", "Lorem ipsum", "Philipp Burgmer", Optional.<String>absent(), "heute"));
 
         return talkList;
     }

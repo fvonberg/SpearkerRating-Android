@@ -27,56 +27,71 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/default_placeholder_image" />
 
-            <TextView
-                android:id="@+id/ratingTalkTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ratingThumbnail"
-                android:maxLines="3"
-                android:padding="8dp"
-                android:textColor="#222"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/ratingTalkSpeaker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ratingTalkTitle"
-                android:maxLines="3"
-                android:padding="8dp"
-                android:textColor="#666"
-                android:textSize="14sp" />
-
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ratingCustomerRating"
-                android:layout_marginTop="5dp"
-                android:numStars="5"
-                android:stepSize="1"
-                android:rating="5"
-                android:layout_below="@+id/ratingTalkSpeaker"
-                android:layout_centerHorizontal="true" />
-
-
-            <EditText
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingCustomerFeedback"
-                android:layout_below="@+id/ratingCustomerRating"
-                android:lines="4"
-                android:hint="@string/rating_hint" />
+                android:layout_margin="15dp"
+                android:layout_below="@+id/ratingThumbnail">
+                <TextView
+                    android:id="@+id/ratingTalkTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="3"
+                    android:padding="8dp"
+                    android:textColor="#222"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/ratingButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/ratingCustomerFeedback"
-                android:text="@string/rate_button" />
+                <View
+                    android:id="@+id/talkSeparator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_below="@+id/ratingTalkTitle"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginBottom="10sp"
+                    android:background="@color/separator" />
 
+                <TextView
+                    android:id="@+id/ratingTalkHeading"
+                    android:layout_below="@+id/talkSeparator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="3"
+                    android:padding="8dp"
+                    android:textColor="#222"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:text="@string/rating_heading" />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingCustomerRating"
+                    android:layout_marginTop="5dp"
+                    android:numStars="5"
+                    android:stepSize="1"
+                    android:rating="5"
+                    android:layout_below="@+id/ratingTalkHeading"
+                    android:layout_centerHorizontal="true" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingCustomerFeedback"
+                    android:layout_below="@+id/ratingCustomerRating"
+                    android:lines="4"
+                    android:hint="@string/rating_hint"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/ratingButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/ratingCustomerFeedback"
+                    android:text="@string/rate_button" />
+            </RelativeLayout>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

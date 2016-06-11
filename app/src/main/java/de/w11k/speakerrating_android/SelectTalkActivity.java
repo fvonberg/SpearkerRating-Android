@@ -1,6 +1,7 @@
 package de.w11k.speakerrating_android;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,7 +32,9 @@ public class SelectTalkActivity extends AppCompatActivity {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        TalkAdapter talkAdapter = new TalkAdapter(conferenceTalks);
+        Typeface font = Typeface.createFromAsset( getAssets(), "fontawesome-webfont.ttf" );
+
+        TalkAdapter talkAdapter = new TalkAdapter(conferenceTalks, font);
 
         recyclerView.setAdapter(talkAdapter);
     }

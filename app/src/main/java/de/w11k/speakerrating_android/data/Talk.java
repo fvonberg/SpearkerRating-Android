@@ -12,14 +12,16 @@ public class Talk implements Serializable{
     private final String description;
     private final String speaker;
     private final Optional<String> optionalImageUrl;
+    private final String presentationDate;
 
-    public Talk(Integer id, Integer conference_id, String title, String description, String speaker, Optional<String> optionalImageUrl) {
+    public Talk(Integer id, Integer conference_id, String title, String description, String speaker, Optional<String> optionalImageUrl, String presentationDate) {
         this.id = id;
         this.conferenceId = conference_id;
         this.title = title;
         this.description = description;
         this.speaker = speaker;
         this.optionalImageUrl = optionalImageUrl;
+        this.presentationDate = presentationDate;
     }
 
     public Integer getId() {
@@ -44,5 +46,9 @@ public class Talk implements Serializable{
 
     public Optional<String> getOptionalImageUrl() {
         return optionalImageUrl;
+    }
+
+    public String getPresentationDate() {
+        return presentationDate;
     }
 }

@@ -1,6 +1,7 @@
 package de.w11k.speakerrating_android.view;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,9 +23,11 @@ public class TalkAdapter extends RecyclerView.Adapter<TalkAdapter.TalkViewHolder
     public final static String EXTRA_TALK_DATA = "extra_talk";
 
     private final List<Talk> talkList;
+    private final Typeface typeFace;
 
-    public TalkAdapter(List<Talk> talkList) {
+    public TalkAdapter(List<Talk> talkList, Typeface typeFace) {
         this.talkList = talkList;
+        this.typeFace = typeFace;
     }
 
     @Override
@@ -43,7 +46,10 @@ public class TalkAdapter extends RecyclerView.Adapter<TalkAdapter.TalkViewHolder
         }
 
         holder.talkTitle.setText(talk.getTitle());
-        holder.talkSpeaker.setText(talk.getSpeaker());
+        holder.talkSpeaker.setTypeface(typeFace);
+        holder.talkSpeaker.setText("\uf007 " + talk.getSpeaker());
+        holder.talkDate.setTypeface(typeFace);
+        holder.talkDate.setText("\uf073 " + talk.getPresentationDate());
         holder.talkText.setText(talk.getDescription());
 
         holder.talkRateButton.setOnClickListener(new TalkButtonOnClickListener(talk));
@@ -59,6 +65,7 @@ public class TalkAdapter extends RecyclerView.Adapter<TalkAdapter.TalkViewHolder
         protected final ImageView thumbnailImage;
         protected final TextView talkTitle;
         protected final TextView talkSpeaker;
+        protected final TextView talkDate;
         protected final TextView talkText;
         protected final Button talkRateButton;
 
@@ -68,6 +75,7 @@ public class TalkAdapter extends RecyclerView.Adapter<TalkAdapter.TalkViewHolder
             this.thumbnailImage= (ImageView) itemView.findViewById(R.id.talkThumbnail);
             this.talkTitle = (TextView) itemView.findViewById(R.id.talkTitle);
             this.talkSpeaker = (TextView) itemView.findViewById(R.id.talkSpeaker);
+            this.talkDate = (TextView) itemView.findViewById(R.id.talkDate);
             this.talkText = (TextView) itemView.findViewById(R.id.talkText);
             this.talkRateButton = (Button) itemView.findViewById(R.id.talkButton);
 

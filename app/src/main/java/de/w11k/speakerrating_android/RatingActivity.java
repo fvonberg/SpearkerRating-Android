@@ -3,6 +3,7 @@ package de.w11k.speakerrating_android;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -23,10 +24,14 @@ import de.w11k.speakerrating_android.view.TalkAdapter;
 
 public class RatingActivity extends AppCompatActivity {
 
+    private Typeface typeFace;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rating);
+
+        this.typeFace = Typeface.createFromAsset( getAssets(), "fontawesome-webfont.ttf" );
 
         Intent intent = getIntent();
         Talk talk = (Talk) intent.getSerializableExtra(TalkAdapter.EXTRA_TALK_DATA);
@@ -40,11 +45,8 @@ public class RatingActivity extends AppCompatActivity {
 
         TextView ratingTalkTitle = (TextView) findViewById(R.id.ratingTalkTitle);
         ratingTalkTitle.setText(talk.getTitle());
-        TextView ratingTalkSpeaker = (TextView) findViewById(R.id.ratingTalkSpeaker);
-        ratingTalkSpeaker.setText(talk.getSpeaker());
 
         Button rateButton = (Button) findViewById(R.id.ratingButton);
-
         rateButton.setOnClickListener(new RateButtonOnClickListener(talk));
 
     }
@@ -69,11 +71,12 @@ public class RatingActivity extends AppCompatActivity {
 
             boolean result = ConferenceServiceFactory.getConferenceService().sendRating(customerRating);
 
-            // TODO: Ladeindikator anzeigen
-
             if (result) {
                 AlertDialog.Builder confirmDialogBuilder = new AlertDialog.Builder(view.getContext());
-                confirmDialogBuilder.setMessage("Thanks for your rating!").setTitle("Rating saved! :-)");
+
+                String message = "Vielen Dank für Ihre Bewertung mit " + rating.intValue() + " \uf005";
+
+                confirmDialogBuilder.setMessage(message).setTitle("Bewertung");
 
                 confirmDialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
@@ -83,7 +86,10 @@ public class RatingActivity extends AppCompatActivity {
                     }
                 });
 
-                confirmDialogBuilder.show();
+                AlertDialog dialog = confirmDialogBuilder.show();
+                TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+                textView.setTypeface(typeFace);
+
             } else {
                 AlertDialog.Builder errorDialogBuilder = new AlertDialog.Builder(view.getContext());
                 errorDialogBuilder.setMessage("Ups! Something went wrong, please try again.").setTitle("We are sorry!");
