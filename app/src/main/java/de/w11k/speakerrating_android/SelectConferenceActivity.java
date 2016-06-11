@@ -23,7 +23,7 @@ public class SelectConferenceActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         ConferenceService conferenceService = ConferenceServiceFactory.getConferenceService();
-        ConferenceAdapter conferenceAdapter = new ConferenceAdapter(conferenceService.getAllConferences());
+        ConferenceAdapter conferenceAdapter = new ConferenceAdapter(conferenceService.getAllConferences(getAssets()));
 
         recyclerView.setAdapter(conferenceAdapter);
     }

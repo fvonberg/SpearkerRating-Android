@@ -38,10 +38,10 @@ public class RatingActivity extends AppCompatActivity {
 
         ImageView thumbnailImage = (ImageView) findViewById(R.id.ratingThumbnail);
 
-        Optional<String> optImageUrl = talk.getOptionalImageUrl();
-        if (optImageUrl.isPresent()) {
-            new DownloadImageTask(thumbnailImage).execute(optImageUrl.get());
-        }
+//        Optional<String> optImageUrl = talk.getImageUrl();
+//        if (optImageUrl.isPresent()) {
+//            new DownloadImageTask(thumbnailImage).execute(optImageUrl.get());
+//        }
 
         TextView ratingTalkTitle = (TextView) findViewById(R.id.ratingTalkTitle);
         ratingTalkTitle.setText(talk.getTitle());

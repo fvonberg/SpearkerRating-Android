@@ -1,17 +1,15 @@
 package de.w11k.speakerrating_android.data;
 
-import com.google.common.base.Optional;
-
 public class Conference {
 
     private final Integer id;
-    private final Optional<String> optionalImageUrl;
+    private final String imageUrl;
     private final String title;
     private final String description;
 
-    public Conference(Integer id, Optional<String> optionalImageUrl, String title, String description) {
+    public Conference(Integer id, String imageUrl, String title, String description) {
         this.id = id;
-        this.optionalImageUrl = optionalImageUrl;
+        this.imageUrl = imageUrl;
         this.title = title;
         this.description = description;
     }
@@ -28,7 +26,7 @@ public class Conference {
         return description;
     }
 
-    public Optional<String> getOptionalImageUrl() {
-        return optionalImageUrl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 }

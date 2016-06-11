@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.common.base.Optional;
-
 import java.util.List;
 
 import de.w11k.speakerrating_android.R;
@@ -40,14 +38,14 @@ public class TalkAdapter extends RecyclerView.Adapter<TalkAdapter.TalkViewHolder
     public void onBindViewHolder(TalkViewHolder holder, int position) {
         Talk talk = talkList.get(position);
 
-        Optional<String> optImageUrl = talk.getOptionalImageUrl();
-        if (optImageUrl.isPresent()) {
-            new DownloadImageTask(holder.thumbnailImage).execute(optImageUrl.get());
-        }
+//        Optional<String> optImageUrl = talk.getImageUrl();
+//        if (optImageUrl.isPresent()) {
+//            new DownloadImageTask(holder.thumbnailImage).execute(optImageUrl.get());
+//        }
 
         holder.talkTitle.setText(talk.getTitle());
         holder.talkSpeaker.setTypeface(typeFace);
-        holder.talkSpeaker.setText("\uf007 " + talk.getSpeaker());
+        holder.talkSpeaker.setText("\uf007 " + talk.getAuthor());
         holder.talkDate.setTypeface(typeFace);
         holder.talkDate.setText("\uf073 " + talk.getPresentationDate());
         holder.talkText.setText(talk.getDescription());

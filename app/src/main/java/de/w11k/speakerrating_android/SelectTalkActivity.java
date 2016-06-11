@@ -24,7 +24,7 @@ public class SelectTalkActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Integer conferenceId = (Integer) intent.getSerializableExtra(ConferenceAdapter.EXTRA_CONFERENCE_ID);
 
-        List<Talk> conferenceTalks = ConferenceServiceFactory.getConferenceService().getAllTalksForConferenceWith(conferenceId);
+        List<Talk> conferenceTalks = ConferenceServiceFactory.getConferenceService().getAllTalksForConferenceWith(conferenceId, getAssets());
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.talkCardList);
         recyclerView.setHasFixedSize(true);

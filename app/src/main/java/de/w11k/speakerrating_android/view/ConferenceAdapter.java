@@ -1,6 +1,5 @@
 package de.w11k.speakerrating_android.view;
 
-import android.app.VoiceInteractor;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -38,10 +37,10 @@ public class ConferenceAdapter extends RecyclerView.Adapter<ConferenceAdapter.Co
     public void onBindViewHolder(ConferenceViewHolder holder, int position) {
         Conference conference = conferenceList.get(position);
 
-        Optional<String> optImageUrl = conference.getOptionalImageUrl();
-        if (optImageUrl.isPresent()) {
-            new DownloadImageTask(holder.thumbnailImage).execute(optImageUrl.get());
-        }
+//        Optional<String> optImageUrl = conference.getImageUrl();
+//        if (optImageUrl.isPresent()) {
+//            new DownloadImageTask(holder.thumbnailImage).execute(optImageUrl.get());
+//        }
 
         holder.conferenceName.setText(conference.getTitle());
         holder.conferenceDescription.setText(conference.getDescription());
